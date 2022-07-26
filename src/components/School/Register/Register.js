@@ -1,9 +1,13 @@
-import { useState } from "react";
+import React from "react";
+
 import { useForm } from "react-hook-form";
-import Header from "../Header";
-import { add } from "./slices/user";
+
+// import Header from "../Header";
+import { registerSchool } from "./../schoolSlice";
 
 import { useDispatch } from "react-redux";
+
+import Header from "./../../Header";
 
 export default function Register() {
   const {
@@ -11,7 +15,6 @@ export default function Register() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const [data, setData] = useState("");
   const dispatch = useDispatch();
 
   return (
@@ -19,20 +22,28 @@ export default function Register() {
       <Header />
       <form
         onSubmit={handleSubmit((data) => {
-          let uid = Math.floor(Math.random() * 1000);
-          const userData = { ...data, uid };
-          setData(JSON.stringify(userData));
-          dispatch(add(userData));
+          const schoolData = { ...data };
+          dispatch(registerSchool(schoolData));
         })}
       >
         <input
+          {...register("schoolName", { required: true })}
+          placeholder="School name"
+        />
+        <input
           {...register("firstName", { required: true })}
           placeholder="First name"
-        />{" "}
+        />
         {errors.firstName && <span>First Name is required</span>}
         <input {...register("lastName")} placeholder="Last name" />
         <input {...register("email", { required: true })} placeholder="Email" />
         {errors.email && <span>Email is required</span>}
+
+        <input
+          {...register("password", { required: true })}
+          placeholder="Password"
+        />
+        {errors.password && <span>Password is required</span>}
         <input
           type="number"
           {...register("phoneNumber", { minLength: 10, maxLength: 16 })}
@@ -43,13 +54,9 @@ export default function Register() {
             Please enter the valid phone number with min 10 and max 16
           </span>
         )}
-        {/* <select {...register("gender")} placeholder="Gender">
-          <option value="">Select...</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-          <option value="others">Others</option>
-        </select> */}
-        <textarea {...register("bio")} placeholder="Bio" />
+        <input {...register("address")} placeholder="Address" />
+        <input {...register("city")} placeholder="City" />
+        <input {...register("pincode")} placeholder="Pincode" />
         <input type="submit" />
       </form>
     </>

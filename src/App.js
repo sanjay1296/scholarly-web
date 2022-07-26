@@ -1,12 +1,12 @@
 import "./App.css";
-import Register from "./components/users/Register.js";
-import UserList from "./components/users/UserList.js";
+import { BrowserRouter } from "react-router-dom";
+import Base from "./components/Base/Base";
+
 function App() {
   return (
-    <div className="App">
-      <Register />
-      <UserList />
-    </div>
+    <BrowserRouter>
+      <Base />
+    </BrowserRouter>
   );
 }
 
