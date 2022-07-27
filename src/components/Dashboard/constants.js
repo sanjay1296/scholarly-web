@@ -5,7 +5,7 @@ export const CARDS = {
       title: "Courses Assinged",
     },
   ],
-  professor: [
+  staff: [
     {
       key: "studentsCount",
       title: "Students Assinged",

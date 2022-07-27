@@ -18,7 +18,7 @@ client.interceptors.response.use(
 
 const api = {
   getDashboardCount: () => client.get("/schools/count"),
-  registerSchool: () => client.post("/schools"),
+  registerSchool: (data) => client.post("/schools", data ),
   fetchAllSchools: () => client.get("/schools"),
 };
 

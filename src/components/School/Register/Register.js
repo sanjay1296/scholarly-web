@@ -22,8 +22,8 @@ export default function Register() {
       <Header />
       <form
         onSubmit={handleSubmit((data) => {
-          const schoolData = { ...data };
-          dispatch(registerSchool(schoolData));
+          console.log(data)
+          dispatch(registerSchool(data));
         })}
       >
         <input

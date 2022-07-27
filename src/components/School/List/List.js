@@ -34,7 +34,7 @@ function UserList() {
 
   useEffect(() => {
     dispatch(fetchAllSchools());
-  }, []);
+  }, [dispatch]);
   // const handleChangePage = (event, newPage) => {
   //   setPage(newPage);
   // };

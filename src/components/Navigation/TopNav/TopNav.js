@@ -72,7 +72,7 @@ const ResponsiveAppBar = () => {
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar
                   alt="Remy Sharp"
-                  src="./../../static/images/avatar/1.jpg"
+                  src="./../../../static/images/avatar/1.jpg"
                 />
               </IconButton>
             </Tooltip>

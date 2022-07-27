@@ -5,7 +5,6 @@ function Navigation({ children }) {
   return (
     <div>
       <TopNav />
-
       <div>{children}</div>
     </div>
   );

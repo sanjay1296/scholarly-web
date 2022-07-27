@@ -2,9 +2,13 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 import api from "../../utils/Api";
 
-export const registerSchool = createAsyncThunk("school/register", async () => {
-  return await api.registerSchool();
-});
+export const registerSchool = createAsyncThunk(
+  "school/register",
+  async (data) => {
+    console.log('register data',data)
+    return await api.registerSchool(data);
+  }
+);
 
 export const fetchSchool = createAsyncThunk("school/fetch", async () => {
   return await api.fetchSchool();
@@ -25,7 +29,7 @@ export const fetchAllSchools = createAsyncThunk("school/fetchAll", async () => {
 export const schoolSlice = createSlice({
   name: "school",
   initialState: {
-    loading: 'idle'
+    loading: "idle",
   },
   extraReducers: (builder) => {
     builder
