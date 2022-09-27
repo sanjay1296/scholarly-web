@@ -3,7 +3,12 @@
 }
 
 
+.dashboard-button {
+    padding: 5px;
+    background: #065f02;
+    color: white;
+}
 
 .dashboard-card {
-    padding: 16px;
+    color: #6a6c6a;
 }

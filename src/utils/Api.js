@@ -18,8 +18,12 @@ client.interceptors.response.use(
 
 const api = {
   getDashboardCount: () => client.get("/schools/count"),
-  registerSchool: (data) => client.post("/schools", data ),
+  registerSchool: (data) => client.post("/schools", data),
+  viewSchool: (schoolId) => client.get(`/schools/:${schoolId}`),
   fetchAllSchools: () => client.get("/schools"),
+  registerStudent: (schoolId, data) =>
+    client.post(`/schools/:${schoolId}/students`, data),
+  displayProfile: (uid) => client.get(`/users/:${uid}`),
 };
 
 export default api;

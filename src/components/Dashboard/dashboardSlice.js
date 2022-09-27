@@ -19,16 +19,11 @@ export const dashboardSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getDashboardCount.pending, (state, action) => {
-        console.log("pending ", state, action);
-        // if (state.loading === "idle") {
         state.loading = "pending";
-        // }
       })
       .addCase(getDashboardCount.fulfilled, (state, action) => {
-        console.log("fulfilled ", state.loading, action);
         if (state.loading === "pending") {
           state.loading = "idle";
-
           state.schoolsCount = action.payload.schoolsCount;
           state.studentsCount = action.payload.studentsCount;
           state.staffsCount = action.payload.staffsCount;
@@ -36,7 +31,6 @@ export const dashboardSlice = createSlice({
         }
       })
       .addCase(getDashboardCount.rejected, (state, action) => {
-        console.log("rejected ", state, action);
         if (state.loading === "pending") {
           state.loading = "idle";
           state.error = action.error;

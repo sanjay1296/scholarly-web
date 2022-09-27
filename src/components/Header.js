@@ -3,7 +3,9 @@ import React from "react";
 export default function Header() {
   return (
     <div>
-      <h1 style={{ color: "#bf1650" }}>Register a new School</h1>
+      <h2 style={{ color: "#bf1550", textAlign: "center" }}>
+        School Registration
+      </h2>
     </div>
   );
 }

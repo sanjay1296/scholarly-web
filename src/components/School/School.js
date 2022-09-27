@@ -11,7 +11,6 @@ function School() {
       <Route index element={<List />} />
       <Route path="register" element={<Register />} />
       {/* <Route path="view/schoolId" element={<View />} /> */}
-
     </Routes>
   );
 }

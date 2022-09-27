@@ -9,6 +9,9 @@ export const userSlice = createSlice({
     add: (state, { payload }) => {
       state.users.push(payload);
     },
+    view: (state, { payload }) => {
+      state.user[payload.uid] = payload;
+    },
     remove: (state, { payload }) => {
       let index = state.users.findIndex((x) => x.uid === payload);
       state.users.splice(index, 1);
@@ -16,6 +19,6 @@ export const userSlice = createSlice({
   },
 });
 
-export const { add, remove } = userSlice.actions;
+export const { add, remove, view } = userSlice.actions;
 
 export default userSlice.reducer;

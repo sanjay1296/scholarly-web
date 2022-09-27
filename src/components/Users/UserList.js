@@ -46,7 +46,7 @@ function UserList({ isTableLoading }) {
           Users list
           <ul>
             {users.map((user) => (
-              <li>
+              <li key={user.uid}>
                 <span>UID: {user.uid}</span>{" "}
                 <span>First Name: {user.firstName}</span>
                 <button onClick={() => onDelete(user.uid)}> Delete </button>

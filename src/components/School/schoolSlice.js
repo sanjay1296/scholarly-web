@@ -5,7 +5,7 @@ import api from "../../utils/Api";
 export const registerSchool = createAsyncThunk(
   "school/register",
   async (data) => {
-    console.log('register data',data)
+    console.log("register data", data);
     return await api.registerSchool(data);
   }
 );
@@ -35,20 +35,17 @@ export const schoolSlice = createSlice({
     builder
       /** start of register slice */
       .addCase(registerSchool.pending, (state, action) => {
-        console.log("pending ", state, action);
         if (state.loading === "idle") {
           state.loading = "pending";
         }
       })
       .addCase(registerSchool.fulfilled, (state, action) => {
-        console.log("fulfilled ", state.loading, action);
         if (state.loading === "pending") {
           state.loading = "idle";
           state.schoolId = action.payload.schoolId;
         }
       })
       .addCase(registerSchool.rejected, (state, action) => {
-        console.log("rejected ", state, action);
         if (state.loading === "pending") {
           state.loading = "idle";
           state.error = action.error;
@@ -58,20 +55,17 @@ export const schoolSlice = createSlice({
 
       /** start of fetch all schools slice */
       .addCase(fetchAllSchools.pending, (state, action) => {
-        console.log("pending ", state, action);
         if (state.loading === "idle") {
           state.loading = "pending";
         }
       })
       .addCase(fetchAllSchools.fulfilled, (state, action) => {
-        console.log("fulfilled ", state.loading, action.payload);
         if (state.loading === "pending") {
           state.loading = "idle";
           state.list = action.payload;
         }
       })
       .addCase(fetchAllSchools.rejected, (state, action) => {
-        console.log("rejected ", state, action);
         if (state.loading === "pending") {
           state.loading = "idle";
           state.schools = action.payload.schools;

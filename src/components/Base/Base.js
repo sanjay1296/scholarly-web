@@ -5,6 +5,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Navigation from "../Navigation/Navigation";
 import Dashboard from "../Dashboard/Dashboard";
 import Login from "../Login/Login";
+import Profile from "../Users/Profile";
 import Register from "../Register";
 import School from "../School";
 
@@ -14,7 +15,8 @@ function Base() {
       <Routes>
         <Route index element={<Navigate to="./dashboard" replace />} />
         <Route path="dashboard" element={<Dashboard />} />
-        <Route path="school/*" element={<School />} />
+        <Route path="profile" element={<Profile />} />
+        <Route path="dashboard/school/*" element={<School />} />
       </Routes>
     </Navigation>
   );
